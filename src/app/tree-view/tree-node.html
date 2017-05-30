@@ -1,0 +1,20 @@
+<div class="tree-node tree-node-level-{{level}} tree-node-id-{{branch.id}}" [class.tree-node-root]="this.id === null" *ngIf="branch && branch.show">
+  <div class="node-header" [attr.hidden]="this.id === null ? '' : null">
+    <i class="fa fa-refresh fa-spin fa-fw" *ngIf="branch.isRequesting"></i>
+    <i class="fa fa-plus" aria-hidden="true" *ngIf="isCollapsed()" (click)="unfold()"></i>
+    <i class="fa fa-minus" aria-hidden="true" *ngIf="isUnfolded()" (click)="collapse()"></i>
+    <i class="fa fa-square-o" aria-hidden="true" [class.selectable]="branch.selectable" *ngIf="isDeselected()" (click)="select()"></i>
+    <i class="fa fa-square" aria-hidden="true" [class.selectable]="branch.selectable" *ngIf="isPartially()" (click)="select()"></i>
+    <i class="fa fa-check-square" aria-hidden="true" [class.selectable]="branch.selectable" *ngIf="isSelected()" (click)="deselect()"></i>
+    <span class="node-label">{{branch.label}}</span>
+  </div>
+  <ul class="node-children" *ngIf="branch.children && branch.children.length > 0 && branch.unfolded">
+    <li class="node-child" *ngFor="let child of branch.children">
+      <atv-tree-node [id]="child.id"
+                     [level]="level + 1"
+                     [maxLevel]="maxLevel"
+                     [srv]="srv">
+      </atv-tree-node>
+    </li>
+  </ul>
+</div>

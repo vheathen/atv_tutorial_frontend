@@ -1,0 +1,39 @@
+ul {
+  list-style-type: none;
+}
+
+.node-header {
+  position: relative;
+}
+
+.node-header .fa-square-o,
+.node-header .fa-square,
+.node-header .fa-check-square {
+  left: 18px;
+}
+
+.node-header .fa-minus,
+.node-header .fa-plus {
+  left: 0;
+  color: #1f8bcc;
+}
+
+.node-header .fa-refresh {
+  left: -3px;
+  color: #1f8bcc;
+}
+
+.node-header .fa {
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+}
+
+.node-header .fa.selectable {
+  color: #1f8bcc;
+}
+
+.node-header .node-label {
+  margin-left: 33px;
+  display: inline-block;
+}
